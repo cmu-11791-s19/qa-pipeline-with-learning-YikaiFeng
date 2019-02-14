@@ -23,13 +23,15 @@ The table above showed several comparisons among two Featurizers and three Class
 
 ### Count based vs Tf-idf based
 
-Different featurizers performed on datasets have a different influence on a, p, r and f. However the selection of featurizers did not seem to be the main aspect to affect the overall performance. From the table, Count based featurizer outperformed Tf-idf featurizer under MNB and MLP classifier, while in SVM, Count based performed worse than Tf-idf featurizer. Therefore, I assumed that either different model has a different preference on the featurizer or the selection of classifiers played a more important role in this QA task than featurizers.
+Different featurizers performed on datasets have a different influence on a, p, r and f. However the selection of featurizers did not seem to be the main aspect to affect the overall performance. From the table, Count based featurizer outperformed Tf-idf featurizer under MNB and MLP classifier, while in SVM, Count based performed worse than Tf-idf featurizer. Therefore, I assumed that either different classifier has a different preference on the featurizer or the selection of classifiers played a more important role in this QA task than featurizers.
 
 ### MNB vs SVM vs MLP
 
-The performance of different classifier model is quite varied than each other on the a, p, r and f metrics. Support Vector Machine (SVM) achieved the first place for the average performance under two featurizers and is relatively better using Tf-idf based featurizer. Multinomial Naive Bayes (MNB) ranked second, while Multi Layer Perceptron performed worst in this QA task. There was an obvious gap between the performance of the three models, therefore I assumed that the selection of classifier is crucial for this specific task.
+The performance of different classifiers is quite varied than each other on the a, p, r and f metrics. Support Vector Machine (SVM) achieved the first place for the average performance under two featurizers and is relatively better using Tf-idf based featurizer. Multinomial Naive Bayes (MNB) ranked second, while Multi Layer Perceptron performed worst in this QA task. There was an obvious gap between the performance of the three classifiers, therefore I assumed that the selection of classifier is crucial for this specific task.
 
 ## Error Analysis
+
+I conducted an error analysis on two extreme cases (all false and all true) for the six models. Following are some example questions and answers where the two cases happened.
 
 ![Alt text](results/Error_Analysis.png?raw=true "Title")
 
