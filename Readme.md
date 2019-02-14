@@ -4,7 +4,7 @@ qa-pipeline-with-learning-YikaiFeng created by GitHub Classroom
 
 ## Overview
 
-In this assignment, I implemented a QA pipeline with the extension of the tf-idf Featurizer, SVM classifier and MLP classifier. The data set used to train on is quasar-s_train which consists of 37,000 cloze-style questions. After completing training on different featurizers and classifiers, six models were applied to the development dataset, quasar-s_dev, which consists of 3139 questions. Then, the evaluator compared the prediction outputs by the models to the ground truth label and computed the accuracy, precision, recall and F-measure.
+In this assignment, I implemented a QA pipeline with the extension of the tf-idf Featurizer, SVM classifier and MLP classifier. The data set used to train on is quasar-s_train which consists of 37,000 cloze-style questions. Since there is a memory limitation on executing with the whole dataset, for simplicity, I used the first 6000 samples for the training process. After completing training on different featurizers and classifiers, six models were applied to the development dataset, quasar-s_dev, which consists of 3139 questions. Then, the evaluator compared the prediction outputs by the models to the ground truth label and computed the accuracy, precision, recall and F-measure.
 
 ## Performance Comparison
 
@@ -19,16 +19,18 @@ In this assignment, I implemented a QA pipeline with the extension of the tf-idf
 
 ## Analysis
 
-The table above showed several comparison among two Featurizers and three Classifiers using metrics of Accuracy (a), Precision (p), Recall (r) and F-measure (f).
+The table above showed several comparisons among two Featurizers and three Classifiers using metrics of Accuracy (a), Precision (p), Recall (r) and F-measure (f).
 
 ### Count based vs Tf-idf based
 
-Different featurizers performed on datasets have different influence on a, p, r and f. However the selection of featurizers did not seem to be the main aspect to affect the overall performance. From the table, Count based featurizer outperformed Tf-idf featurizer under MNB and MLP classifier, while in SVM, Count based performed worse than Tf-idf featurizer. Therefore, I assumed that either different model has a different preference on the featurizer or the selection of classifiers played a more important role in this QA task than the one of featurizers.
+Different featurizers performed on datasets have a different influence on a, p, r and f. However the selection of featurizers did not seem to be the main aspect to affect the overall performance. From the table, Count based featurizer outperformed Tf-idf featurizer under MNB and MLP classifier, while in SVM, Count based performed worse than Tf-idf featurizer. Therefore, I assumed that either different model has a different preference on the featurizer or the selection of classifiers played a more important role in this QA task than featurizers.
 
 ### MNB vs SVM vs MLP
 
-The performance of different classifier model is quite varied than each other on the a, p, r and f metrics. Support Vector Machine (SVM) achieved the first place Multinomial Naive Bayes (MNB)
+The performance of different classifier model is quite varied than each other on the a, p, r and f metrics. Support Vector Machine (SVM) achieved the first place for the average performance under two featurizers and is relatively better using Tf-idf based featurizer. Multinomial Naive Bayes (MNB) ranked second, while Multi Layer Perceptron performed worst in this QA task. There was an obvious gap between the performance of the three models, therefore I assumed that the selection of classifier is crucial for this specific task.
 
 ## Error Analysis
 
-Comparing the prediction results output by the six models, I observed that there are 
+![Alt text](result/Error_Analysis?raw=true "Title")
+
+Comparing the prediction results output by the six models, I observed that the six models all got wrong on 2600 questions (defined as difficult questions), about 82.83% of the development dataset; and they all got right answers for 2 questions (defined as easy questions), about 0.06% of the development dataset. This turned out that the models did not have good performance on the task. The reasons might be that the data for training is not enough (due to memory limitation, only 6000 out of 37000 training samples are selected), the models are not complicated enough to solve the task (parameter tuning and other model selections can be done to improve the performance).
