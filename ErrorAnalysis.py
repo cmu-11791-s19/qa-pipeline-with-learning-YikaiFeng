@@ -8,12 +8,12 @@ valfile = open("../../quasar-s_dev_formatted.json", 'r')
 valData = json.load(valfile)
 valfile.close()
 
-Count_MNB_file = open("../Count_MNB_pred", 'r')
-Tfidf_MNB_file = open("../Tfidf_MNB_pred", 'r')
-Count_SVM_file = open("../Count_SVM_pred", 'r')
-Tfidf_SVM_file = open("../Tfidf_SVM_pred", 'r')
-Count_MLP_file = open("../Count_MLP_pred", 'r')
-Tfidf_MLP_file = open("../Tfidf_MLP_pred", 'r')
+Count_MNB_file = open("results/Count_MNB_pred", 'r')
+Tfidf_MNB_file = open("results/Tfidf_MNB_pred", 'r')
+Count_SVM_file = open("results/Count_SVM_pred", 'r')
+Tfidf_SVM_file = open("results/Tfidf_SVM_pred", 'r')
+Count_MLP_file = open("results/Count_MLP_pred", 'r')
+Tfidf_MLP_file = open("results/Tfidf_MLP_pred", 'r')
 
 Count_MNB = []
 Tfidf_MNB = []
@@ -50,8 +50,8 @@ for j in range(len(Count_MNB)):
         Count_MLP[j] == '0' and \
         Tfidf_MLP[j] == '0':
         false += 1
-        if j <= 10: # take some examples here not all
-            print "Question {} is predicted false for all the six models.".format(j)
+        if j < 10: # take some examples here not all
+            print "Question {} is predicted false for all the six models.".format(j+1)
             question = valData["questions"][j]
             X = question['query']
             Y = question['answers'][0]
@@ -65,7 +65,7 @@ for j in range(len(Count_MNB)):
         Count_MLP[j] == '1' and \
         Tfidf_MLP[j] == '1':
         true += 1
-        print "Question {} is predicted true for all the six models.".format(j)
+        print "Question {} is predicted true for all the six models.".format(j+1)
         question = valData["questions"][j]
         X = question['query']
         Y = question['answers'][0]
