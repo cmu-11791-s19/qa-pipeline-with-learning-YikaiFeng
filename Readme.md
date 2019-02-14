@@ -2,6 +2,8 @@
 
 qa-pipeline-with-learning-YikaiFeng created by GitHub Classroom
 
+# Report on HW3
+
 ## Overview
 
 In this assignment, I implemented a QA pipeline with the extension of the tf-idf Featurizer, SVM classifier and MLP classifier. The data set used to train on is quasar-s_train which consists of 37,000 cloze-style questions. After completing training on different featurizers and classifiers, six models were applied to the development dataset, quasar-s_dev, which consists of 3139 questions. Then, the evaluator compared the prediction outputs by the models to the ground truth label and computed the accuracy, precision, recall and F-measure.
