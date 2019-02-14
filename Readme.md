@@ -27,7 +27,7 @@ Different featurizers performed on datasets have a different influence on a, p, 
 
 ### MNB vs SVM vs MLP
 
-The performance of different classifiers is quite varied than each other on the a, p, r and f metrics. Support Vector Machine (SVM) achieved the first place for the average performance under two featurizers and is relatively better using Tf-idf based featurizer. Multinomial Naive Bayes (MNB) ranked second, while Multi Layer Perceptron performed worst in this QA task. There was an obvious gap between the performance of the three classifiers, therefore I assumed that the selection of classifier is crucial for this specific task.
+The performance of different classifiers is quite varied than each other on the a, p, r and f metrics. Support Vector Machine (SVM) achieved the first place for the average performance under two featurizers and is relatively better using Tf-idf based featurizer. Multinomial Naive Bayes (MNB) ranked second, while Multi Layer Perceptron performed worst in this QA task. There was an obvious gap between the performance of the three classifiers, therefore I assumed that the selection of classifier is crucial for this specific task. Since SVM worked best here with a linear kernel, so the dataset is likely to be linearly seperable so that linear classifier will have better performance.
 
 ## Error Analysis
 
@@ -35,4 +35,4 @@ I conducted an error analysis on two extreme cases (all false and all true) for 
 
 ![Alt text](results/Error_Analysis.png?raw=true "Title")
 
-Comparing the prediction results output by the six models, I observed that the six models all got wrong on 2600 questions (defined as difficult questions), about 82.83% of the development dataset; and they all got right answers for 2 questions (defined as easy questions), about 0.06% of the development dataset. This turned out that the models did not have good performance on the task. The reasons might be that the data for training is not enough (due to memory limitation, only 6000 out of 37000 training samples are selected), the models are not complicated enough to solve the task (parameter tuning and other model selections can be done to improve the performance).
+Comparing the prediction results output by the six models, I observed that the six models all got wrong on 2600 questions (defined as tough questions), about 82.83% of the development dataset; and they all got right answers for 2 questions (defined as easy questions), about 0.06% of the development dataset. This turned out that the models did not have good performance on the task. The reasons might be that the data for training is not enough (due to memory limitation, only 6000 out of 37000 training samples are selected), the models are not complicated enough to solve the task (parameter tuning and other model selections can be done to improve the performance).
